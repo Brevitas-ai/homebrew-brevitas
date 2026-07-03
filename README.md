@@ -7,20 +7,20 @@ proxy.
 ## Install
 
 ```sh
-brew install Brevitas-ai/brevitas/brevitas
+brew install Brevitas-ai/brevitas/bvx
 # or
 brew tap Brevitas-ai/brevitas
-brew install brevitas
+brew install bvx
 ```
 
 Then:
 
 ```sh
-brevitas install
+bvx install
 ```
 
 ## Bleeding edge
 
 ```sh
-brew install --HEAD Brevitas-ai/brevitas/brevitas
+brew install --HEAD Brevitas-ai/brevitas/bvx
 ```
