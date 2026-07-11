@@ -11,35 +11,37 @@
 class Bvx < Formula
   desc "Middleware installer that routes AI coding assistants through Brevitas"
   homepage "https://github.com/Brevitas-ai/brevitas"
-  version "0.1.15"
+  version "0.1.16"
   license "MIT"
-
-  on_macos do
-    on_arm do
-      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.15/bvx-0.1.15-darwin-arm64.tar.gz"
-      sha256 "a511ee5106ef26cdfcdaa5f76dc74833f417e5491984c29956c3a6884cd36356"
-    end
-    on_intel do
-      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.15/bvx-0.1.15-darwin-amd64.tar.gz"
-      sha256 "d45e12130004c3c4eb3c0164f674c6e970565ddcef21d36513a0b990df30fb89"
-    end
-  end
-
-  on_linux do
-    on_arm do
-      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.15/bvx-0.1.15-linux-arm64.tar.gz"
-      sha256 "9858ff36ecf5d2e331678a7ed978b36a0b00795ab211ba5a323e8413d69efc1f"
-    end
-    on_intel do
-      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.15/bvx-0.1.15-linux-amd64.tar.gz"
-      sha256 "f3f4bbbca47a2fd92fd67dbc644cb3035bb0e08382888736aad6472708408f79"
-    end
-  end
 
   # Bleeding-edge source build (requires Go, only used with --HEAD).
   head do
     url "https://github.com/Brevitas-ai/brevitas.git", branch: "main"
     depends_on "go" => :build
+  end
+
+  depends_on "python@3.13"
+
+  on_macos do
+    on_arm do
+      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.16/bvx-0.1.16-darwin-arm64.tar.gz"
+      sha256 "f2850f82ba2adf410bfa1c1afbf816d904e9ba5b5e88bda833acee62741efa98"
+    end
+    on_intel do
+      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.16/bvx-0.1.16-darwin-amd64.tar.gz"
+      sha256 "1430d8faa644941ba0a6ee4735e0df77376cd153a164b34e16ba7320c5585008"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.16/bvx-0.1.16-linux-arm64.tar.gz"
+      sha256 "e71d53b3a2641d45cd434c369dff233a8fe7555873f88863df3edbd1d37d4da6"
+    end
+    on_intel do
+      url "https://github.com/Brevitas-ai/brevitas/releases/download/v0.1.16/bvx-0.1.16-linux-amd64.tar.gz"
+      sha256 "6b02a577002b80e739b167bd229437a55d3c25425b0db64bf395e80bf3c8469f"
+    end
   end
 
   def install
@@ -60,11 +62,10 @@ class Bvx < Formula
       Brevitas configures your AI coding tools to route through a local proxy.
 
       Next steps:
-        bvx install     # detect tools, store your API key, configure, start
+        bvx install     # sign in, detect tools, configure, start
 
-      The optimization engine (brevitas-systems) is a Python package:
-        pip install brevitas-systems
-        bvx update      # keep it current
+      bvx installs and pins the brevitas-systems optimization engine automatically.
+      Run `bvx update` later to keep it current.
     EOS
   end
 
